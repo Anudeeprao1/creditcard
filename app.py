@@ -86,3 +86,19 @@ if uploaded_file is not None:
     ax.set_ylabel('Mean Squared Error (MSE)')
     ax.legend()
     st.pyplot(fig)
+    
+# Remove MSE column
+    results = results.drop(columns=['MSE'], errors='ignore')
+
+    # Provide download option
+    @st.cache
+    def convert_df_to_csv(df):
+        return df.to_csv(index=False).encode('utf-8')
+
+    csv_data = convert_df_to_csv(results)
+    st.download_button(
+        label="Download Processed Data",
+        data=csv_data,
+        file_name='processed_data.csv',
+        mime='text/csv'
+    )
