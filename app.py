@@ -53,7 +53,7 @@ def process_data(file):
     return results, threshold
 
 # Streamlit UI
-st.title('Anomaly Detection with Autoencoder')
+st.title('Credit Card Fraud Detection')
 
 # File upload
 uploaded_file = st.file_uploader("Choose an Excel file", type="xlsx")
